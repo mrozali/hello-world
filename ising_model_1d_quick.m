@@ -1,19 +1,18 @@
-% Monte Carlo Simulation of the 1D Ising Model
-% This script simulates the 1D Ising model using the Metropolis algorithm
-% and plots the magnetization as a function of temperature
+% Monte Carlo Simulation of the 1D Ising Model - Quick Version
+% This is a faster version with reduced parameters for quick demonstration
 
 clear all;
 close all;
 clc;
 
-%% Parameters
-N = 100;                    % Number of spins in the chain
+%% Parameters (reduced for faster execution)
+N = 50;                     % Number of spins in the chain
 J = 1.0;                    % Coupling constant (positive for ferromagnetic)
 T_min = 0.1;                % Minimum temperature
 T_max = 5.0;                % Maximum temperature
-T_steps = 30;               % Number of temperature points
-equilibration_steps = 5000; % Steps to reach equilibrium
-measurement_steps = 10000;  % Steps for measurements
+T_steps = 20;               % Number of temperature points
+equilibration_steps = 2000; % Steps to reach equilibrium
+measurement_steps = 3000;   % Steps for measurements
 
 %% Temperature range
 T = linspace(T_min, T_max, T_steps);
@@ -24,7 +23,7 @@ magnetization_std = zeros(1, T_steps);
 energy = zeros(1, T_steps);
 
 %% Main simulation loop
-fprintf('Starting 1D Ising Model Simulation\n');
+fprintf('Starting 1D Ising Model Simulation (Quick Version)\n');
 fprintf('System size: %d spins\n', N);
 fprintf('Temperature range: %.2f to %.2f\n\n', T_min, T_max);
 
@@ -68,7 +67,8 @@ end
 fprintf('\nSimulation complete!\n\n');
 
 %% Plotting
-figure('Position', [100, 100, 1200, 500]);
+figure('visible', 'off');
+set(gcf, 'Position', [100, 100, 1200, 500]);
 
 % Plot magnetization vs temperature
 subplot(1, 2, 1);
@@ -90,5 +90,5 @@ grid on;
 set(gca, 'FontSize', 11);
 
 % Save the figure
-saveas(gcf, 'ising_model_results.png');
-fprintf('Results saved to ising_model_results.png\n');
+print('ising_model_results_quick.png', '-dpng', '-r150');
+fprintf('Results saved to ising_model_results_quick.png\n');
