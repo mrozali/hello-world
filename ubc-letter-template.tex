@@ -1,0 +1,137 @@
+\documentclass[11pt,letterpaper]{letter}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+
+% UBC Colors
+\definecolor{ubcblue}{RGB}{0,33,69}
+\definecolor{ubcgold}{RGB}{248,182,0}
+
+% Page geometry
+\geometry{
+    top=3.5cm,
+    bottom=3cm,
+    left=2.5cm,
+    right=2.5cm,
+    headheight=2.5cm
+}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=ubcblue,
+    urlcolor=ubcblue
+}
+
+% Header setup
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+% Header with UBC branding
+\fancyhead[L]{%
+    \begin{minipage}[b]{0.6\textwidth}
+        % If you have the UBC logo, uncomment and use:
+        % \includegraphics[height=1.5cm]{ubc-logo.png}
+        {\Large\bfseries\color{ubcblue}THE UNIVERSITY OF BRITISH COLUMBIA}\\[2pt]
+        {\normalsize\color{ubcblue}Faculty of Science}\\
+        {\normalsize\color{ubcblue}Department of Physics \& Astronomy}
+    \end{minipage}%
+}
+
+\fancyhead[R]{%
+    \begin{minipage}[b]{0.35\textwidth}
+        \raggedleft
+        \small\color{ubcblue}
+        6224 Agricultural Road\\
+        Vancouver, BC V6T 1Z1\\
+        Canada
+    \end{minipage}%
+}
+
+% Footer
+\fancyfoot[C]{\thepage}
+
+% Letter signature command
+\newcommand{\signature}[1]{%
+    \vspace{1.5cm}
+    % If you have a signature image, uncomment:
+    % \includegraphics[height=1.5cm]{signature.png}\\[0.3cm]
+    \vspace{0.5cm}
+    #1
+}
+
+% Remove default letter formatting
+\makeatletter
+\renewcommand{\opening}[1]{%
+    \vspace{1cm}
+    #1\par\nobreak\vspace{0.5cm}
+}
+\renewcommand{\closing}[1]{%
+    \par\nobreak\vspace{0.5cm}
+    \stopbreaks
+    \noindent #1\\[2\medskipamount]%
+}
+\makeatother
+
+\begin{document}
+
+%==============================================================================
+% LETTER HEADER INFO
+%==============================================================================
+\begin{minipage}[t]{0.5\textwidth}
+\vspace{0pt}
+\textbf{Moshe Rozali}\\
+Professor\\
+\href{mailto:rozali@phas.ubc.ca}{rozali@phas.ubc.ca}\\
+Tel: (604) 822-3853
+\end{minipage}%
+\begin{minipage}[t]{0.5\textwidth}
+\vspace{0pt}
+\raggedleft
+\today
+\end{minipage}
+
+\vspace{1.5cm}
+
+%==============================================================================
+% RECIPIENT
+%==============================================================================
+% Modify these fields for your recipient
+\noindent
+Dr. Jane Smith\\
+Department of Physics\\
+Example University\\
+123 Science Avenue\\
+City, State 12345\\
+USA
+
+%==============================================================================
+% LETTER BODY
+%==============================================================================
+\opening{Dear Dr. Smith,}
+
+% Your letter content goes here
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+\closing{Sincerely,}
+
+\signature{%
+    Moshe Rozali\\
+    Professor\\
+    Department of Physics \& Astronomy\\
+    University of British Columbia
+}
+
+\end{document}
