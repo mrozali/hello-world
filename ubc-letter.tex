@@ -1,0 +1,70 @@
+% UBC Physics Letter Template
+% Uses ubcletter.cls for official UBC letterhead formatting
+%
+% To use: pdflatex ubc-letter.tex
+
+\documentclass{ubcletter}
+
+%==============================================================================
+% SENDER INFORMATION
+%==============================================================================
+% Your name (used for return address on envelope labels)
+\name{Moshe Rozali}
+
+% Your signature block (appears after closing)
+\signature{Moshe Rozali\\Professor}
+
+% Setting address triggers the UBC letterhead header
+% The actual content is ignored - it uses the default UBC Physics address
+\address{default}
+
+% Contact information (appears in header)
+\telephone{(604) 822-3853}
+\fax{(604) 228-5324}
+\email{rozali@phas.ubc.ca}
+
+% Date (defaults to today if not specified)
+% \date{January 15, 2025}
+
+%==============================================================================
+% DOCUMENT
+%==============================================================================
+\begin{document}
+
+%------------------------------------------------------------------------------
+% LETTER 1
+%------------------------------------------------------------------------------
+\begin{letter}{%
+    Dr. Jane Smith\\
+    Department of Physics\\
+    Example University\\
+    123 Science Avenue\\
+    City, State 12345\\
+    USA
+}
+
+\opening{Dear Dr. Smith,}
+
+% Your letter content goes here...
+
+I am writing to recommend [Student Name] for [position/program]. I have known [Student Name] for [X] years in my capacity as [their professor/supervisor/etc.] at the University of British Columbia.
+
+During this time, [Student Name] has demonstrated exceptional abilities in [specific areas]. Their work on [specific project or research] was particularly noteworthy, showing [specific qualities such as analytical thinking, creativity, perseverance, etc.].
+
+[Additional paragraph about specific accomplishments, skills, or qualities.]
+
+[Additional paragraph about character, work ethic, or collaboration skills.]
+
+In summary, I give [Student Name] my highest recommendation. Please do not hesitate to contact me if you require any additional information.
+
+\closing{Sincerely,}
+
+% Optional: carbon copy list
+% \cc{Department Chair\\Graduate Admissions}
+
+% Optional: enclosures
+% \encl{Curriculum Vitae\\Publication List}
+
+\end{letter}
+
+\end{document}
