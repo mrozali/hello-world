@@ -5,6 +5,19 @@
 
 \documentclass{ubcletter}
 
+% Compatibility for ubcletter.cls (LaTeX 2.09 style)
+% Define old-style font commands used by the class
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+
+% Fix for blank page issue in ubcletter.cls:
+% 1. \endletter contains \pagebreak which adds extra page after letter
+% 2. \enddocument contains \newpage which adds blank page at end
+\makeatletter
+\def\endletter{\stopletter\@@par}
+\def\enddocument{\@checkend{document}\deadcycles\z@\@@end}
+\makeatother
+
 %==============================================================================
 % SENDER INFORMATION
 %==============================================================================
