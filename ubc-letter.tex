@@ -4,18 +4,26 @@
 % To use: pdflatex ubc-letter.tex
 
 \documentclass{ubcletter}
+\usepackage{latexsym}
 
 % Compatibility for ubcletter.cls (LaTeX 2.09 style)
-% Define old-style font commands used by the class
+\makeatletter
+% Define old-style font commands
 \DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
 \DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
+\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\mathsc}
 
-% Fix for blank page issue in ubcletter.cls:
-% 1. \endletter contains \pagebreak which adds extra page after letter
-% 2. \enddocument contains \newpage which adds blank page at end
-\makeatletter
+% Fix for extra pages in ubcletter.cls:
+% 1. Remove \newpage from \letter (causes blank first page)
+% 2. Remove \pagebreak from \endletter
+\long\def\letter#1{\c@page\@ne
+  \interlinepenalty=200
+  \@processto{#1}}
 \def\endletter{\stopletter\@@par}
-\def\enddocument{\@checkend{document}\deadcycles\z@\@@end}
+
+% Clear any junk from first page
+\AtBeginDocument{\setcounter{page}{1}}
 \makeatother
 
 %==============================================================================
