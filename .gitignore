@@ -8,3 +8,6 @@
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+
+# Intermediate PDF for letter extraction
+ubc-letter-final.pdf
